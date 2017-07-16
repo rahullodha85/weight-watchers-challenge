@@ -17,7 +17,7 @@ public class WebPageTest {
 
     public WebPageTest() {
         getChromeDriver();
-        driver.navigate().to("file:///Users/461967/dev/weight-watchers-challenge/src/main/resources/testPage.html");
+        driver.navigate().to("file:///" + this.getClass().getClassLoader().getResource("testPage.html").getPath()); //Users/461967/dev/weight-watchers-challenge/src/main/resources/testPage.html");
     }
 
     public WebDriver getChromeDriver() {
@@ -56,19 +56,7 @@ public class WebPageTest {
         return map;
     }
 
-    private void closeBrowser() {
+    public void closeBrowser() {
         driver.quit();
-    }
-
-    public static void main(String[] args) {
-        WebPageTest test = new WebPageTest();
-        System.out.println("Third item from list: " + test.readItemByIndex(2));
-        System.out.println("Fifth item from list: " + test.readItemByIndex(4));
-        Map<String, String> items = test.readAll();
-        System.out.println("\nAll Items:");
-        for (String key : items.keySet()) {
-            System.out.println("Food Item: " + key + ", Serving: " + items.get(key));
-        }
-        test.closeBrowser();
     }
 }
