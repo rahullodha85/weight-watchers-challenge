@@ -27,6 +27,7 @@ public class FileParser {
                     for (String str : strArr) {
                         System.out.println(str.trim());
                     }
+                    System.out.println();
                 }
             }
         } catch (java.io.IOException e) {
